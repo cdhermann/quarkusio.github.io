@@ -474,6 +474,16 @@ In this case, it means `Book.id` must be `null` and `Book.title` must not be bla
 will be validated for the `book` parameter of the `put` method.
 In this case, it means `Book.id` must not be `null` and `Book.title` must not be blank.
 
+== Native compilation
+
+Building a `Validator` using the `ValidatorFactory` is not possible in native mode. You will end in an 
+error similar to `javax.validation.NoProviderFoundException: Unable to create a Configuration, because no 
+Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your 
+classpath.`
+
+Always use an injected `Validator`. If you have to configure the `ValidatorFactory` follow the guide at  
+<<configuring-the-validatorfactory>>.
+
 [[configuration-reference]]
 == Hibernate Validator Configuration Reference
 
